@@ -1,89 +1,152 @@
 import React from 'react';
-import { Zap, Twitter, Github, Linkedin, Mail } from 'lucide-react';
-import AdSense from './AdSense';
+import { Zap, Twitter, Github, Linkedin, Mail, Send, ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
+  
+  const footerLinks = [
+    {
+      title: 'Product',
+      links: [
+        { name: 'Features', href: '#features' },
+        { name: 'How It Works', href: '#how-it-works' },
+        { name: 'Pricing', href: '#' },
+        { name: 'Download', href: '#download' },
+      ],
+    },
+    {
+      title: 'Company',
+      links: [
+        { name: 'About Us', href: '#' },
+        { name: 'Blog', href: '#' },
+        { name: 'Careers', href: '#' },
+        { name: 'Contact', href: '#' },
+      ],
+    },
+    {
+      title: 'Legal',
+      links: [
+        { name: 'Privacy Policy', href: '#' },
+        { name: 'Terms of Service', href: '#' },
+        { name: 'Cookie Policy', href: '#' },
+        { name: 'GDPR', href: '#' },
+      ],
+    },
+  ];
+
+  const socialLinks = [
+    { icon: <Twitter className="w-5 h-5" />, name: 'Twitter', href: '#' },
+    { icon: <Github className="w-5 h-5" />, name: 'GitHub', href: '#' },
+    { icon: <Linkedin className="w-5 h-5" />, name: 'LinkedIn', href: '#' },
+    { icon: <Mail className="w-5 h-5" />, name: 'Email', href: 'mailto:contact@jarvisai.com' },
+  ];
+
   return (
-    <footer className="bg-gray-900 border-t border-gray-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid md:grid-cols-4 gap-8 mb-8">
-          <div className="col-span-1">
-            <div className="flex items-center space-x-2 mb-4">
-              <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                <Zap className="w-5 h-5 text-white" />
+    <footer className="relative bg-gray-900 border-t border-gray-800/50 overflow-hidden">
+      {/* Decorative elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -top-1/2 -right-1/4 w-full h-full bg-gradient-radial from-blue-500/5 to-transparent opacity-30"></div>
+      </div>
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-12">
+        {/* Newsletter Section */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="bg-gradient-to-r from-blue-900/30 to-purple-900/30 border border-gray-700/50 rounded-2xl p-8 mb-16 backdrop-blur-sm"
+        >
+          <div className="max-w-3xl mx-auto text-center">
+            <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-300 text-sm font-medium mb-6">
+              <Send className="w-4 h-4 mr-2" />
+              Stay Updated
+            </div>
+            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">Subscribe to our newsletter</h3>
+            <p className="text-gray-400 max-w-2xl mx-auto mb-8">
+              Get the latest updates, news and product offers delivered straight to your inbox.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+              <input 
+                type="email" 
+                placeholder="Enter your email" 
+                className="flex-1 px-6 py-4 bg-gray-800/50 border border-gray-700 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              />
+              <button className="px-6 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-medium rounded-xl hover:from-blue-600 hover:to-purple-700 transition-all duration-300 flex items-center justify-center space-x-2">
+                <span>Subscribe</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
+          {/* Brand info */}
+          <div className="lg:col-span-2">
+            <div className="flex items-center space-x-3 mb-6">
+              <div className="p-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg">
+                <Zap className="w-6 h-6 text-white" />
               </div>
-              <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+              <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                 Jarvis AI
               </span>
             </div>
-            <p className="text-gray-400 mb-4">
-              The future of AI-powered writing assistance. Instant, intelligent, everywhere.
+            <p className="text-gray-400 mb-6">
+              The future of AI-powered writing assistance. Instant, intelligent, and available everywhere you work.
             </p>
             <div className="flex space-x-4">
-              <Twitter className="w-5 h-5 text-gray-400 hover:text-white cursor-pointer transition-colors" />
-              <Github className="w-5 h-5 text-gray-400 hover:text-white cursor-pointer transition-colors" />
-              <Linkedin className="w-5 h-5 text-gray-400 hover:text-white cursor-pointer transition-colors" />
-              <Mail className="w-5 h-5 text-gray-400 hover:text-white cursor-pointer transition-colors" />
+              {socialLinks.map((social, index) => (
+                <a
+                  key={index}
+                  href={social.href}
+                  aria-label={social.name}
+                  className="p-2.5 bg-gray-800/50 rounded-xl text-gray-400 hover:text-white hover:bg-gray-700/50 transition-all duration-300"
+                >
+                  {social.icon}
+                </a>
+              ))}
             </div>
           </div>
 
-          <div>
-            <h4 className="text-white font-semibold mb-4">Product</h4>
-            <ul className="space-y-2">
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Features</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Pricing</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">API</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Integrations</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-white font-semibold mb-4">Company</h4>
-            <ul className="space-y-2">
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">About</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Blog</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Careers</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Contact</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-white font-semibold mb-4">Support</h4>
-            <ul className="space-y-2">
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Help Center</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Documentation</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Status</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Contact Support</a></li>
-            </ul>
-          </div>
-        </div>
-
-        {/* Google Ad */}
-        <div className="mb-8">
-          <div className="bg-gray-800/30 border border-gray-700 rounded-lg p-4">
-            <div className="text-xs text-gray-500 mb-2 text-center">Advertisement</div>
-            <div className="h-20 bg-gradient-to-r from-gray-700 to-gray-600 rounded flex items-center justify-center">
-              <span className="text-gray-400 text-sm">Footer Ad Space</span>
+          {/* Footer links */}
+          {footerLinks.map((column, index) => (
+            <div key={index}>
+              <h4 className="text-white font-semibold text-lg mb-6">{column.title}</h4>
+              <ul className="space-y-4">
+                {column.links.map((link, linkIndex) => (
+                  <li key={linkIndex}>
+                    <a 
+                      href={link.href} 
+                      className="text-gray-400 hover:text-white transition-colors duration-300 flex items-start group"
+                    >
+                      <span className="group-hover:text-blue-400 transition-colors duration-300">
+                        {link.name}
+                      </span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </div>
-          </div>
+          ))}
         </div>
 
-        {/* AdSense Ad Block - Added above the copyright */}
-        <div className="py-6 border-t border-gray-800 mt-8 mb-6">
-          <div className="flex justify-center">
-            <AdSense 
-              adSlot="2483072340" // Replace with your footer ad slot ID
-              style={{ display: 'block' }}
-              format="auto"
-              layoutKey="-gw-1+2a-9x+5c"
-            />
-          </div>
-        </div>
-
-        <div className="pt-8 mt-8 border-t border-gray-800">
-          <p className="text-center text-gray-400 text-sm">
-            &copy; {new Date().getFullYear()} Jarvis AI. All rights reserved.
+        {/* Bottom bar */}
+        <div className="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
+          <p className="text-gray-500 text-sm mb-4 md:mb-0">
+            &copy; {currentYear} Jarvis AI. All rights reserved.
           </p>
+          <div className="flex space-x-6">
+            <a href="#" className="text-gray-500 hover:text-gray-300 text-sm transition-colors duration-300">
+              Privacy Policy
+            </a>
+            <a href="#" className="text-gray-500 hover:text-gray-300 text-sm transition-colors duration-300">
+              Terms of Service
+            </a>
+            <a href="#" className="text-gray-500 hover:text-gray-300 text-sm transition-colors duration-300">
+              Cookies
+            </a>
+          </div>
         </div>
       </div>
     </footer>

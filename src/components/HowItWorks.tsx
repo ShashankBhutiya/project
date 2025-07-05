@@ -1,6 +1,7 @@
 import React from 'react';
-import { Type, MessageSquare, Zap, CheckCircle, Download } from 'lucide-react';
-import AdSense from './AdSense';
+import { Type, MessageSquare, Zap, CheckCircle, ChevronRight } from 'lucide-react';
+import { motion } from 'framer-motion';
+import './HowItWorks.css';
 
 type ColorKey = 'blue' | 'purple' | 'green' | 'cyan';
 
@@ -10,155 +11,201 @@ interface Step {
   description: string;
   example: string;
   color: ColorKey;
+  delay: number;
 }
 
-const HowItWorks = () => {
+const HowItWorks: React.FC = () => {
   const steps: Step[] = [
     {
-      icon: <Type className="w-12 h-12" />,
+      icon: <Type />,
       title: 'Type the Magic Words',
       description: 'In any application, type "jarvis" followed by your question or request',
       example: 'jarvis Explain quantum computing',
-      color: 'blue'
+      color: 'blue',
+      delay: 0.1
     },
     {
-      icon: <MessageSquare className="w-12 h-12" />,
+      icon: <MessageSquare />,
       title: 'AI Processes Your Request',
       description: 'Our advanced AI analyzes your question and generates a comprehensive response',
       example: 'Processing with GPT-4 and custom models...',
-      color: 'purple'
+      color: 'purple',
+      delay: 0.2
     },
     {
-      icon: <Zap className="w-12 h-12" />,
+      icon: <Zap />,
       title: 'Instant Response',
-      description: 'The AI response appears instantly at your cursor, ready to use or edit',
+      description: 'The AI response appears instantly at your cursor',
       example: 'Response inserted seamlessly into your workflow',
-      color: 'green'
+      color: 'green',
+      delay: 0.3
     },
     {
-      icon: <CheckCircle className="w-12 h-12" />,
+      icon: <CheckCircle />,
       title: 'Continue Working',
-      description: 'Keep typing, editing, or use the response as-is. Jarvis stays out of your way',
+      description: 'Keep typing or use the response as-is',
       example: 'Seamless integration with your workflow',
-      color: 'cyan'
+      color: 'cyan',
+      delay: 0.4
     }
   ];
 
-  const colorClasses: Record<ColorKey, string> = {
-    blue: 'from-blue-500 to-cyan-500',
-    purple: 'from-purple-500 to-pink-500',
-    green: 'from-green-500 to-emerald-500',
-    cyan: 'from-cyan-500 to-blue-500'
+  const colorConfig: Record<ColorKey, { from: string; to: string; border: string }> = {
+    blue: {
+      from: '#3b82f6',
+      to: '#0ea5e9',
+      border: 'rgba(96, 165, 250, 0.5)'
+    },
+    purple: {
+      from: '#8b5cf6',
+      to: '#a855f7',
+      border: 'rgba(168, 85, 247, 0.5)'
+    },
+    green: {
+      from: '#10b981',
+      to: '#14b8a6',
+      border: 'rgba(16, 185, 129, 0.5)'
+    },
+    cyan: {
+      from: '#06b6d4',
+      to: '#0ea5e9',
+      border: 'rgba(6, 182, 212, 0.5)'
+    }
+  };
+
+  const container = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3
+      }
+    }
+  };
+
+  const item = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+        ease: [0.16, 1, 0.3, 1] as const
+      }
+    }
   };
 
   return (
-    <section id="how-it-works" className="py-20 bg-gray-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-            How Jarvis Works
-          </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Experience the magic of AI-powered assistance in just four simple steps
-          </p>
-        </div>
+    <section className="how-it-works" id="how-it-works">
+      {/* Background elements */}
+      <div className="background-elements">
+        <div className="background-blob purple" />
+        <div className="background-blob cyan" />
+      </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-          {steps.map((step, index) => (
-            <div key={index} className="relative">
-              {/* Connection line */}
-              {index < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-20 left-full w-full h-0.5 bg-gradient-to-r from-gray-600 to-transparent z-0 transform translate-x-4"></div>
-              )}
-              
-              <div className="relative z-10 bg-gray-800/50 backdrop-blur-lg border border-gray-700 rounded-xl p-6 text-center hover:border-gray-600 transition-all duration-300 transform hover:-translate-y-2">
-                <div className="flex items-center justify-center mb-6">
-                  <div className={`p-4 rounded-full bg-gradient-to-r ${colorClasses[step.color]} text-white`}>
-                    {step.icon}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="header-container"
+        >
+          <div className="badge">
+            <span className="badge-dot" />
+            How It Works
+          </div>
+          <h2 className="heading">
+            Simple Steps to
+            <span>AI-Powered Productivity</span>
+          </h2>
+          <p className="subtitle">
+            Get started in seconds and experience the power of AI assistance across all your applications.
+          </p>
+        </motion.div>
+
+        {/* Timeline */}
+        <motion.div 
+          variants={container}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="timeline-container"
+        >
+          <div className="timeline-line" />
+          
+          {steps.map((step, index) => {
+            const colors = colorConfig[step.color];
+            const isEven = index % 2 === 0;
+            
+            return (
+              <motion.div 
+                key={index}
+                variants={item}
+                custom={index}
+                className={`step ${isEven ? 'flex-row' : 'flex-row-reverse'}`}
+                style={{
+                  '--icon-from': colors.from,
+                  '--icon-to': colors.to,
+                  '--border-color': colors.border
+                } as React.CSSProperties}
+              >
+                <div className={`step-content ${isEven ? '' : 'left'}`}>
+                  <div className="step-icon">
+                    {React.cloneElement(step.icon as React.ReactElement, { className: 'w-6 h-6' })}
+                  </div>
+                  <h3 className="step-title">{step.title}</h3>
+                  <p className="step-description">{step.description}</p>
+                </div>
+                
+                <div className="step-number">
+                  <div className="step-number-inner">
+                    {index + 1}
                   </div>
                 </div>
                 
-                <div className="absolute -top-3 -left-3 w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold text-sm">
-                  {index + 1}
+                <div className={`step-content ${isEven ? 'text-left' : 'text-right'}`}>
+                  <div className="step-example">
+                    <code>{step.example}</code>
+                  </div>
                 </div>
-                
-                <h3 className="text-xl font-semibold text-white mb-4">{step.title}</h3>
-                <p className="text-gray-400 mb-4">{step.description}</p>
-                
-                <div className="bg-gray-900/50 rounded-lg p-3 font-mono text-sm text-green-400">
-                  {step.example}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-        
-        {/* Download Section */}
-        <div className="text-center mt-16 mb-16">
-          <h3 className="text-2xl font-bold text-white mb-6">Ready to Get Started?</h3>
-          <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-            Download Jarvis now and experience AI-powered assistance directly in your workflow
-          </p>
-          <a 
-            href="/jarvis-setup.exe" // Update this path to match your actual file name
-            download
-            className="inline-flex items-center justify-center px-8 py-4 border border-transparent text-base font-medium rounded-md text-white bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 md:py-4 md:text-lg md:px-10 transition-all duration-300 transform hover:scale-105"
-          >
-            <Download className="w-5 h-5 mr-2" />
-            Download Jarvis
-          </a>
-          <p className="text-sm text-gray-400 mt-4">Windows 10/11 • Version 1.0.0</p>
-        </div>
+              </motion.div>
+            );
+          })}
+        </motion.div>
 
-        {/* HowItWorks Ad Unit */}
-        <div className="max-w-4xl mx-auto my-12 p-4 bg-gray-800/50 rounded-lg">
-          <AdSense 
-            adSlot="1908357270"
-            style={{ display: 'block' }}
-            format="auto"
-            layoutKey="-gw-1+2a-9x+5c"
-          />
-        </div>
-
-        {/* Live Demo Section */}
-        <div className="bg-gray-800/30 border border-gray-700 rounded-2xl p-8">
-          <h3 className="text-2xl font-bold text-white text-center mb-8">See It In Action</h3>
-          
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-gray-900 rounded-xl p-6 mb-6">
-              <div className="flex items-center space-x-2 mb-4">
-                <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                <span className="text-gray-400 ml-4 text-sm">Document Editor</span>
-              </div>
-              
-              <div className="space-y-4">
-                <p className="text-gray-300">
-                  I'm writing a blog post about sustainable technology.{' '}
-                  <span className="bg-blue-900/30 px-2 py-1 rounded text-blue-300">
-                    jarvis answer this- What are the latest trends in green technology?
-                  </span>
-                </p>
-                
-                <div className="border-l-4 border-green-500 pl-4 bg-green-900/20 p-4 rounded-r-lg">
-                  <p className="text-gray-300">
-                    <span className="text-green-400 font-semibold">Jarvis Response:</span>{' '}
-                    The latest trends in green technology include advanced solar panel efficiency improvements, 
-                    AI-optimized energy grids, carbon capture innovations, and sustainable computing solutions. 
-                    These technologies are driving significant environmental impact while maintaining economic viability...
-                  </p>
-                </div>
-              </div>
-            </div>
-            
-            <div className="text-center">
-              <button className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold hover:from-blue-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105">
-                Try Jarvis Free for 7 Days
-              </button>
+        {/* CTA Section */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4, duration: 0.6 }}
+          viewport={{ once: true }}
+          className="cta-container"
+        >
+          <div className="cta-card">
+            <h3 className="cta-title">Ready to Boost Your Productivity?</h3>
+            <p className="cta-description">
+              Join thousands of professionals who are already saving hours every day with our AI assistant.
+            </p>
+            <div className="cta-buttons">
+              <a
+                href="#download"
+                className="primary-button"
+              >
+                Download Now
+                <ChevronRight className="w-5 h-5" />
+              </a>
+              <a
+                href="#features"
+                className="secondary-button"
+              >
+                Learn More
+              </a>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
