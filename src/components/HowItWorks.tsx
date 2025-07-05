@@ -3,17 +3,37 @@ import { Type, MessageSquare, Zap, CheckCircle, ChevronRight } from 'lucide-reac
 import { motion } from 'framer-motion';
 import './HowItWorks.css';
 
+/**
+ * Represents the color theme keys used for the step items
+ */
 type ColorKey = 'blue' | 'purple' | 'green' | 'cyan';
 
+/**
+ * Represents a single step in the How It Works section
+ */
 interface Step {
+  /** Icon component to display for the step */
   icon: React.ReactNode;
+  /** Title of the step */
   title: string;
+  /** Description of what happens in this step */
   description: string;
+  /** Example text or content for the step */
   example: string;
+  /** Color theme for the step */
   color: ColorKey;
+  /** Animation delay in seconds */
   delay: number;
 }
 
+/**
+ * HowItWorks Component
+ * 
+ * Displays an animated step-by-step guide showing how the application works.
+ * Each step includes an icon, title, description, and example.
+ * 
+ * @returns {JSX.Element} The rendered HowItWorks component
+ */
 const HowItWorks: React.FC = () => {
   const steps: Step[] = [
     {
@@ -73,6 +93,7 @@ const HowItWorks: React.FC = () => {
     }
   };
 
+  /** Animation variants for the container element */
   const container = {
     hidden: { opacity: 0 },
     visible: {
@@ -84,6 +105,7 @@ const HowItWorks: React.FC = () => {
     }
   };
 
+  /** Animation variants for individual step items */
   const item = {
     hidden: { y: 20, opacity: 0 },
     visible: {

@@ -28,21 +28,21 @@ function App() {
       <Header />
       <main>
         <Hero />
+        <Features />
         {/* AdSense Banner Ad - Top of Content */}
         <div className="container mx-auto px-4 py-8">
           <AdSense 
-            adSlot="5109235686" // Replace with your ad slot ID
+            adSlot="5109235686" // firstAd
             style={{ display: 'block' }}
             format="auto"
             layoutKey="-gw-1+2a-9x+5c"
           />
         </div>
-        <Features />
         <HowItWorks />
         {/* AdSense Banner Ad - Bottom of Content */}
         <div className="container mx-auto px-4 py-8">
           <AdSense 
-            adSlot="8659282662" // Replace with your ad slot ID
+            adSlot="8659282662" // 2ndAd
             style={{ display: 'block' }}
             format="auto"
             layoutKey="-gw-1+2a-9x+5c"

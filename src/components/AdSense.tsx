@@ -15,6 +15,23 @@ const AdSense: React.FC<AdSenseProps> = ({
   layout = '', 
   layoutKey = '' 
 }) => {
+  // Show placeholder in development
+  if (process.env.NODE_ENV !== 'production') {
+    return (
+      <div style={{
+        ...style,
+        backgroundColor: 'rgba(0,0,0,0.1)',
+        border: '2px dashed #666',
+        padding: '20px',
+        textAlign: 'center',
+        color: '#999',
+        margin: '20px 0'
+      }}>
+        Ad Slot: {adSlot}
+        <div style={{ fontSize: '12px', marginTop: '8px' }}>This is a placeholder for ads (only visible in development)</div>
+      </div>
+    );
+  }
   useEffect(() => {
     // Load the AdSense script
     const script = document.createElement('script');
