@@ -1,27 +1,29 @@
-# Project Bolt
+# AI Writing Assistant
 
-A modern React application built with Vite, TypeScript, and Framer Motion for smooth animations.
+A modern, responsive web application that provides AI-powered writing assistance. This project combines the power of React, TypeScript, and Framer Motion to deliver a seamless user experience for generating and improving written content.
 
-## Features
+## ✨ Features
 
-- Responsive design
-- Animated components using Framer Motion
-- Type-safe with TypeScript
-- Modern React (v18+) with Hooks
-- Tailwind CSS for styling
+- **AI-Powered Writing**: Get intelligent suggestions and content generation
+- **Real-time Processing**: See results as you type
+- **Modern UI**: Clean, responsive design with smooth animations
+- **Type Safety**: Built with TypeScript for better developer experience
+- **Accessible**: Designed with accessibility in mind
 
-## Prerequisites
+## 🚀 Getting Started
+
+### Prerequisites
 
 - Node.js (v16 or higher)
 - npm (v7 or higher) or yarn
 - Git
 
-## Getting Started
+### Installation
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
-   cd project
+   git clone https://github.com/yourusername/ai-writing-assistant.git
+   cd ai-writing-assistant
    ```
 
 2. **Install dependencies**
@@ -41,20 +43,28 @@ A modern React application built with Vite, TypeScript, and Framer Motion for sm
 4. **Open in browser**
    The application will be available at `http://localhost:5173`
 
-## Project Structure
+## 🧩 Project Structure
 
 ```
 src/
 ├── components/       # Reusable UI components
-│   ├── HowItWorks/  # How It Works component with animations
-│   └── ...
-├── App.tsx         # Main application component
-└── main.tsx        # Application entry point
+│   ├── Header/      # Navigation and header component
+│   ├── Hero/        # Landing page hero section
+│   ├── Features/    # Features showcase
+│   ├── HowItWorks/  # Step-by-step guide
+│   └── Footer/      # Page footer
+├── App.tsx          # Main application component
+└── main.tsx         # Application entry point
 ```
 
-## Testing
+## 🛠️ Built With
 
-Run tests with:
+- [React](https://reactjs.org/) - A JavaScript library for building user interfaces
+- [TypeScript](https://www.typescriptlang.org/) - Typed JavaScript
+- [Vite](https://vitejs.dev/) - Next Generation Frontend Tooling
+- [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework
+- [Framer Motion](https://www.framer.com/motion/) - Production-ready animation library for React
+- [Lucide Icons](https://lucide.dev/) - Beautiful & consistent icon toolkit
 ```bash
 npm test
 # or
