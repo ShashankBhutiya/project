@@ -1,230 +1,158 @@
 import React from 'react';
-import { Type, MessageSquare, Zap, CheckCircle, ChevronRight } from 'lucide-react';
+import { Download, Chrome, Firefox, Bookmark, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import './HowItWorks.css';
 
-/**
- * Represents the color theme keys used for the step items
- */
-type ColorKey = 'blue' | 'purple' | 'green' | 'cyan';
-
-/**
- * Represents a single step in the How It Works section
- */
-interface Step {
-  /** Icon component to display for the step */
-  icon: React.ReactNode;
-  /** Title of the step */
-  title: string;
-  /** Description of what happens in this step */
-  description: string;
-  /** Example text or content for the step */
-  example: string;
-  /** Color theme for the step */
-  color: ColorKey;
-  /** Animation delay in seconds */
-  delay: number;
-}
-
-/**
- * HowItWorks Component
- * 
- * Displays an animated step-by-step guide showing how the application works.
- * Each step includes an icon, title, description, and example.
- * 
- * @returns {JSX.Element} The rendered HowItWorks component
- */
 const HowItWorks: React.FC = () => {
-  const steps: Step[] = [
+  const installOptions = [
     {
-      icon: <Type />,
-      title: 'Type the Magic Words',
-      description: 'In any application, type "jarvis" followed by your question or request',
-      example: 'jarvis Explain quantum computing',
-      color: 'blue',
-      delay: 0.1
+      icon: <Download className="w-8 h-8" />,
+      title: 'Windows App',
+      description: 'One-click install, works everywhere',
+      link: 'https://github.com/ShashankBhutiya/project/releases/download/Install/JarvisType.exe',
+      buttonText: 'Download .exe',
+      primary: true
     },
     {
-      icon: <MessageSquare />,
-      title: 'AI Processes Your Request',
-      description: 'Our advanced AI analyzes your question and generates a comprehensive response',
-      example: 'Processing with GPT-4 and custom models...',
-      color: 'purple',
-      delay: 0.2
+      icon: <Chrome className="w-8 h-8" />,
+      title: 'Chrome Extension',
+      description: 'For web-based workflows',
+      link: '#',
+      buttonText: 'Add to Chrome',
+      primary: false
     },
     {
-      icon: <Zap />,
-      title: 'Instant Response',
-      description: 'The AI response appears instantly at your cursor',
-      example: 'Response inserted seamlessly into your workflow',
-      color: 'green',
-      delay: 0.3
+      icon: <Firefox className="w-8 h-8" />,
+      title: 'Firefox Add-on',
+      description: 'Firefox browser support',
+      link: '#',
+      buttonText: 'Add to Firefox',
+      primary: false
     },
     {
-      icon: <CheckCircle />,
-      title: 'Continue Working',
-      description: 'Keep typing or use the response as-is',
-      example: 'Seamless integration with your workflow',
-      color: 'cyan',
-      delay: 0.4
+      icon: <Bookmark className="w-8 h-8" />,
+      title: 'Bookmarklet',
+      description: 'Works in any browser',
+      link: '#',
+      buttonText: 'Get Bookmarklet',
+      primary: false
     }
   ];
 
-  const colorConfig: Record<ColorKey, { from: string; to: string; border: string }> = {
-    blue: {
-      from: '#3b82f6',
-      to: '#0ea5e9',
-      border: 'rgba(96, 165, 250, 0.5)'
-    },
-    purple: {
-      from: '#8b5cf6',
-      to: '#a855f7',
-      border: 'rgba(168, 85, 247, 0.5)'
-    },
-    green: {
-      from: '#10b981',
-      to: '#14b8a6',
-      border: 'rgba(16, 185, 129, 0.5)'
-    },
-    cyan: {
-      from: '#06b6d4',
-      to: '#0ea5e9',
-      border: 'rgba(6, 182, 212, 0.5)'
-    }
-  };
-
-  /** Animation variants for the container element */
-  const container = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3
-      }
-    }
-  };
-
-  /** Animation variants for individual step items */
-  const item = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.5,
-        ease: [0.16, 1, 0.3, 1] as const
-      }
-    }
-  };
-
   return (
-    <section className="how-it-works" id="how-it-works">
-      {/* Background elements */}
-      <div className="background-elements">
-        <div className="background-blob purple" />
-        <div className="background-blob cyan" />
-      </div>
-
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative py-24 bg-gray-900/50" id="download">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="header-container"
+          className="text-center mb-16"
         >
-          <div className="badge">
-            <span className="badge-dot" />
-            How It Works
-          </div>
-          <h2 className="heading">
-            Simple Steps to
-            <span>AI-Powered Productivity</span>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent">
+            Get Started in 10 Seconds
           </h2>
-          <p className="subtitle">
-            Get started in seconds and experience the power of AI assistance across all your applications.
+          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+            Choose your platform and start using AI everywhere you type.
           </p>
         </motion.div>
 
-        {/* Timeline */}
-        <motion.div 
-          variants={container}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="timeline-container"
-        >
-          <div className="timeline-line" />
-          
-          {steps.map((step, index) => {
-            const colors = colorConfig[step.color];
-            const isEven = index % 2 === 0;
-            
-            return (
-              <motion.div 
-                key={index}
-                variants={item}
-                custom={index}
-                className={`step ${isEven ? 'flex-row' : 'flex-row-reverse'}`}
-                style={{
-                  '--icon-from': colors.from,
-                  '--icon-to': colors.to,
-                  '--border-color': colors.border
-                } as React.CSSProperties}
+        {/* Install Options */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+          {installOptions.map((option, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className={`bg-gray-800/50 backdrop-blur-sm border rounded-2xl p-6 text-center transition-all duration-300 hover:shadow-xl ${
+                option.primary 
+                  ? 'border-blue-500/50 hover:border-blue-400/70 hover:shadow-blue-500/20' 
+                  : 'border-gray-700/50 hover:border-gray-600/50'
+              }`}
+            >
+              <div className={`inline-flex p-4 rounded-xl mb-4 ${
+                option.primary 
+                  ? 'bg-gradient-to-r from-blue-500 to-purple-600' 
+                  : 'bg-gray-700/50'
+              }`}>
+                {option.icon}
+              </div>
+              <h3 className="text-xl font-bold text-white mb-2">{option.title}</h3>
+              <p className="text-gray-400 mb-6 text-sm">{option.description}</p>
+              <a
+                href={option.link}
+                download={option.title === 'Windows App' ? 'JarvisType.exe' : undefined}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`inline-flex items-center justify-center w-full px-4 py-3 rounded-lg font-semibold transition-all duration-300 ${
+                  option.primary
+                    ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white hover:from-blue-600 hover:to-purple-700'
+                    : 'bg-gray-700/50 text-gray-300 hover:bg-gray-600/50 hover:text-white'
+                }`}
               >
-                <div className={`step-content ${isEven ? '' : 'left'}`}>
-                  <div className="step-icon">
-                    {React.cloneElement(step.icon as React.ReactElement, { className: 'w-6 h-6' })}
-                  </div>
-                  <h3 className="step-title">{step.title}</h3>
-                  <p className="step-description">{step.description}</p>
-                </div>
-                
-                <div className="step-number">
-                  <div className="step-number-inner">
-                    {index + 1}
-                  </div>
-                </div>
-                
-                <div className={`step-content ${isEven ? 'text-left' : 'text-right'}`}>
-                  <div className="step-example">
-                    <code>{step.example}</code>
-                  </div>
-                </div>
-              </motion.div>
-            );
-          })}
-        </motion.div>
+                {option.buttonText}
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </a>
+            </motion.div>
+          ))}
+        </div>
 
-        {/* CTA Section */}
+        {/* Enterprise Section */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.6 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
           viewport={{ once: true }}
-          className="cta-container"
+          className="bg-gradient-to-r from-gray-800/50 to-gray-700/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8 text-center"
         >
-          <div className="cta-card">
-            <h3 className="cta-title">Ready to Boost Your Productivity?</h3>
-            <p className="cta-description">
-              Join thousands of professionals who are already saving hours every day with our AI assistant.
-            </p>
-            <div className="cta-buttons">
-              <a
-                href="#download"
-                className="primary-button"
-              >
-                Download Now
-                <ChevronRight className="w-5 h-5" />
-              </a>
-              <a
-                href="#features"
-                className="secondary-button"
-              >
-                Learn More
-              </a>
+          <h3 className="text-2xl font-bold text-white mb-4">Need Enterprise Features?</h3>
+          <p className="text-gray-400 mb-6 max-w-2xl mx-auto">
+            Custom AI models, team management, SSO integration, and dedicated support for organizations.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+            <a
+              href="#pricing"
+              className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all duration-300"
+            >
+              See Pricing
+              <ArrowRight className="w-4 h-4 ml-2" />
+            </a>
+            <a
+              href="mailto:sales@jarvistype.com"
+              className="inline-flex items-center justify-center px-6 py-3 border border-gray-600 text-gray-300 font-semibold rounded-lg hover:border-gray-500 hover:text-white transition-all duration-300"
+            >
+              Contact Sales
+            </a>
+          </div>
+        </motion.div>
+
+        {/* Quick Start Guide */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          viewport={{ once: true }}
+          className="mt-16 text-center"
+        >
+          <h3 className="text-xl font-bold text-white mb-6">After Installation</h3>
+          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <div className="bg-gray-800/30 rounded-xl p-6 border border-gray-700/30">
+              <div className="text-3xl mb-4">1️⃣</div>
+              <h4 className="font-semibold text-white mb-2">Open any app</h4>
+              <p className="text-gray-400 text-sm">Gmail, Slack, Word, WhatsApp—anywhere with text</p>
+            </div>
+            <div className="bg-gray-800/30 rounded-xl p-6 border border-gray-700/30">
+              <div className="text-3xl mb-4">2️⃣</div>
+              <h4 className="font-semibold text-white mb-2">Type "jarvis"</h4>
+              <p className="text-gray-400 text-sm">Followed by your request or question</p>
+            </div>
+            <div className="bg-gray-800/30 rounded-xl p-6 border border-gray-700/30">
+              <div className="text-3xl mb-4">3️⃣</div>
+              <h4 className="font-semibold text-white mb-2">Get instant AI</h4>
+              <p className="text-gray-400 text-sm">Perfect response appears at your cursor</p>
             </div>
           </div>
         </motion.div>

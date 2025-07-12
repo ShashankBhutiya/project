@@ -1,5 +1,5 @@
 import React from 'react';
-import { Zap, Twitter, Github, Linkedin, Mail, Send, ArrowRight } from 'lucide-react';
+import { Zap, Twitter, Github, Linkedin, Mail, Download, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Footer = () => {
@@ -9,19 +9,28 @@ const Footer = () => {
     {
       title: 'Product',
       links: [
+        { name: 'Download', href: '#download' },
         { name: 'Features', href: '#features' },
         { name: 'How It Works', href: '#how-it-works' },
-        { name: 'Pricing', href: '#' },
-        { name: 'Download', href: '#download' },
+        { name: 'Pricing', href: '#pricing' },
+      ],
+    },
+    {
+      title: 'Support',
+      links: [
+        { name: 'Documentation', href: '#' },
+        { name: 'Help Center', href: '#' },
+        { name: 'Contact Support', href: 'mailto:support@jarvistype.com' },
+        { name: 'Report Bug', href: '#' },
       ],
     },
     {
       title: 'Company',
       links: [
-        { name: 'About Us', href: '#' },
+        { name: 'About', href: '#' },
         { name: 'Blog', href: '#' },
         { name: 'Careers', href: '#' },
-        { name: 'Contact', href: '#' },
+        { name: 'Press Kit', href: '#' },
       ],
     },
     {
@@ -30,7 +39,7 @@ const Footer = () => {
         { name: 'Privacy Policy', href: '#' },
         { name: 'Terms of Service', href: '#' },
         { name: 'Cookie Policy', href: '#' },
-        { name: 'GDPR', href: '#' },
+        { name: 'GDPR Compliance', href: '#' },
       ],
     },
   ];
@@ -39,7 +48,7 @@ const Footer = () => {
     { icon: <Twitter className="w-5 h-5" />, name: 'Twitter', href: '#' },
     { icon: <Github className="w-5 h-5" />, name: 'GitHub', href: '#' },
     { icon: <Linkedin className="w-5 h-5" />, name: 'LinkedIn', href: '#' },
-    { icon: <Mail className="w-5 h-5" />, name: 'Email', href: 'mailto:contact@jarvisai.com' },
+    { icon: <Mail className="w-5 h-5" />, name: 'Email', href: 'mailto:hello@jarvistype.com' },
   ];
 
   return (
@@ -50,38 +59,32 @@ const Footer = () => {
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-12">
-        {/* Newsletter Section */}
+        {/* Final CTA Section */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="bg-gradient-to-r from-blue-900/30 to-purple-900/30 border border-gray-700/50 rounded-2xl p-8 mb-16 backdrop-blur-sm"
+          className="bg-gradient-to-r from-blue-900/30 to-purple-900/30 border border-gray-700/50 rounded-2xl p-8 mb-16 backdrop-blur-sm text-center"
         >
-          <div className="max-w-3xl mx-auto text-center">
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-300 text-sm font-medium mb-6">
-              <Send className="w-4 h-4 mr-2" />
-              Stay Updated
-            </div>
-            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">Subscribe to our newsletter</h3>
-            <p className="text-gray-400 max-w-2xl mx-auto mb-8">
-              Get the latest updates, news and product offers delivered straight to your inbox.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-              <input 
-                type="email" 
-                placeholder="Enter your email" 
-                className="flex-1 px-6 py-4 bg-gray-800/50 border border-gray-700 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              />
-              <button className="px-6 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-medium rounded-xl hover:from-blue-600 hover:to-purple-700 transition-all duration-300 flex items-center justify-center space-x-2">
-                <span>Subscribe</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
-            </div>
-          </div>
+          <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">Ready to Transform Your Workflow?</h3>
+          <p className="text-gray-400 max-w-2xl mx-auto mb-8">
+            Join thousands who've already made typing effortless with AI assistance everywhere.
+          </p>
+          <a
+            href="https://github.com/ShashankBhutiya/project/releases/download/Install/JarvisType.exe"
+            download="JarvisType.exe"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold rounded-full hover:from-blue-600 hover:to-purple-700 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20"
+          >
+            <Download className="w-5 h-5 mr-2" />
+            Install in 10 Seconds
+            <ArrowRight className="w-5 h-5 ml-2" />
+          </a>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12 mb-12">
           {/* Brand info */}
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-3 mb-6">
@@ -89,11 +92,11 @@ const Footer = () => {
                 <Zap className="w-6 h-6 text-white" />
               </div>
               <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                Jarvis AI
+                JarvisType
               </span>
             </div>
             <p className="text-gray-400 mb-6">
-              The future of AI-powered writing assistance. Instant, intelligent, and available everywhere you work.
+              AI at your cursor, anywhere you type. The fastest way to get AI assistance without leaving your workflow.
             </p>
             <div className="flex space-x-4">
               {socialLinks.map((social, index) => (
@@ -134,7 +137,7 @@ const Footer = () => {
         {/* Bottom bar */}
         <div className="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-500 text-sm mb-4 md:mb-0">
-            &copy; {currentYear} Jarvis AI. All rights reserved.
+            &copy; {currentYear} JarvisType. All rights reserved.
           </p>
           <div className="flex space-x-6">
             <a href="#" className="text-gray-500 hover:text-gray-300 text-sm transition-colors duration-300">
@@ -144,7 +147,7 @@ const Footer = () => {
               Terms of Service
             </a>
             <a href="#" className="text-gray-500 hover:text-gray-300 text-sm transition-colors duration-300">
-              Cookies
+              Support
             </a>
           </div>
         </div>

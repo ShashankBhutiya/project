@@ -28,7 +28,23 @@ function App() {
       <Header />
       <main>
         <Hero />
+        
+        {/* Optional Demo Section - Hidden by default, can be shown if video URL is provided */}
+        <section id="demo" className="hidden">
+          {/* This section will remain hidden unless a demo video is provided */}
+          <div className="container mx-auto px-4 py-16">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-3xl font-bold text-center mb-8">See JarvisType in Action</h2>
+              {/* Video embed would go here if provided */}
+              <div className="aspect-video bg-gray-800 rounded-lg flex items-center justify-center">
+                <p className="text-gray-400">Demo video placeholder</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <Features />
+        
         {/* AdSense Banner Ad - Top of Content */}
         <div className="container mx-auto px-4 py-8">
           <AdSense 
@@ -38,7 +54,9 @@ function App() {
             layoutKey="-gw-1+2a-9x+5c"
           />
         </div>
+        
         <HowItWorks />
+        
         {/* AdSense Banner Ad - Bottom of Content */}
         <div className="container mx-auto px-4 py-8">
           <AdSense 

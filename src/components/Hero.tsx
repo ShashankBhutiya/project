@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { Sparkles, Download, ArrowRight } from 'lucide-react';
+import { Sparkles, Download, ArrowRight, Play } from 'lucide-react';
 import './Hero.css';
 
 const Hero = () => {
@@ -40,13 +40,13 @@ const Hero = () => {
           <div className="hero-header">
             <div className="badge">
               <Sparkles className="sparkle-icon" size={16} />
-              <span>AI-Powered Writing Assistant</span>
+              <span>AI at Your Cursor</span>
             </div>
             
-            <h1 className="hero-title">Meet Your AI Writing Companion</h1>
+            <h1 className="hero-title">Type "jarvis" anywhere, get AI instantly</h1>
             
             <p className="hero-subtitle">
-              Transform your writing with our AI-powered assistant. Create compelling content in seconds.
+              Works in Gmail, Slack, Word, WhatsApp—any text box on your computer gets AI superpowers.
             </p>
             
             <div className="cta-buttons">
@@ -58,11 +58,11 @@ const Hero = () => {
                 rel="noopener noreferrer"
               >
                 <Download size={18} className="mr-2" />
-                Download for Windows
+                Install in 10 Seconds
               </a>
-              <a href="#features" className="cta-button cta-secondary">
-                Learn More
-                <ArrowRight size={18} className="ml-2" />
+              <a href="#demo" className="cta-button cta-secondary">
+                <Play size={18} className="mr-2" />
+                See It Work
               </a>
             </div>
           </div>
@@ -74,14 +74,20 @@ const Hero = () => {
                 <span className="terminal-button minimize"></span>
                 <span className="terminal-button maximize"></span>
               </div>
-              <div className="terminal-title">terminal</div>
+              <div className="terminal-title">Any App • Anywhere</div>
             </div>
             <div className="terminal-content">
               <div className="terminal-line">
-                <span className="prompt">$</span> jarvis answer this- What is the future of AI?
+                <span className="prompt">Gmail:</span> jarvis write apology email to boss
               </div>
               <div className="terminal-line output">
-                <span className="prompt">&gt;</span> The future of AI is a collaborative partnership between humans and intelligent systems...
+                <span className="prompt">✨</span> Subject: Sincere Apologies for Missing Today's Meeting...
+              </div>
+              <div className="terminal-line" style={{ marginTop: '1rem' }}>
+                <span className="prompt">Slack:</span> jarvis explain quantum computing simply
+              </div>
+              <div className="terminal-line output">
+                <span className="prompt">✨</span> Quantum computing uses quantum bits that can be 0, 1, or both...
               </div>
             </div>
           </div>
