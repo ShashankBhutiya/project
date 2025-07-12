@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Zap, Globe, Shield, Rocket, ArrowRight, MessageSquare, Mail, FileText } from 'lucide-react';
+import { Zap, Globe, Shield, Rocket, ArrowRight, MessageSquare, Mail, FileText, Download } from 'lucide-react';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
