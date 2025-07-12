@@ -1,5 +1,5 @@
 import React from 'react';
-import { Download, Chrome, Firefox, Bookmark, ArrowRight } from 'lucide-react';
+import { Download, Chrome, Siren as Firefox, Bookmark, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import './HowItWorks.css';
 
