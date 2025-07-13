@@ -1,5 +1,4 @@
-import React from 'react';
-import { Zap, Twitter, Github, Linkedin, Mail, Download, ArrowRight } from 'lucide-react';
+import { Download, ArrowRight, Zap, Github, Linkedin, Mail } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Footer = () => {
@@ -9,45 +8,44 @@ const Footer = () => {
     {
       title: 'Product',
       links: [
-        { name: 'Download', href: '#download' },
+        { name: 'Download', href: 'https://github.com/ShashankBhutiya/project/releases' },
         { name: 'Features', href: '#features' },
         { name: 'How It Works', href: '#how-it-works' },
-        { name: 'Pricing', href: '#pricing' },
+        { name: 'Demo', href: '#demo' },
       ],
     },
     {
       title: 'Support',
       links: [
-        { name: 'Documentation', href: '#' },
-        { name: 'Help Center', href: '#' },
-        { name: 'Contact Support', href: 'mailto:support@jarvistype.com' },
-        { name: 'Report Bug', href: '#' },
+        { name: 'Documentation', href: 'https://github.com/ShashankBhutiya/project#readme' },
+        { name: 'GitHub Issues', href: 'https://github.com/ShashankBhutiya/project/issues' },
+        { name: 'Contact Support', href: 'mailto:contact@jarvistype.com' },
+        { name: 'Report Bug', href: 'https://github.com/ShashankBhutiya/project/issues/new?template=bug_report.md' },
       ],
     },
     {
       title: 'Company',
       links: [
-        { name: 'About', href: '#' },
-        { name: 'Blog', href: '#' },
-        { name: 'Careers', href: '#' },
-        { name: 'Press Kit', href: '#' },
+        { name: 'About', href: 'https://github.com/ShashankBhutiya' },
+        { name: 'GitHub', href: 'https://github.com/ShashankBhutiya' },
+        { name: 'LinkedIn', href: 'https://linkedin.com/in/shashankbhutiya' },
+        { name: 'Email', href: 'mailto:contact@jarvistype.com' },
       ],
     },
     {
       title: 'Legal',
       links: [
-        { name: 'Privacy Policy', href: '#' },
-        { name: 'Terms of Service', href: '#' },
-        { name: 'Cookie Policy', href: '#' },
-        { name: 'GDPR Compliance', href: '#' },
+        { name: 'Privacy Policy', href: '/privacy' },
+        { name: 'Terms of Service', href: '/terms' },
+        { name: 'License', href: 'https://github.com/ShashankBhutiya/project/blob/main/LICENSE' },
+        { name: 'Contribute', href: 'https://github.com/ShashankBhutiya/project/blob/main/CONTRIBUTING.md' },
       ],
     },
   ];
 
   const socialLinks = [
-    { icon: <Twitter className="w-5 h-5" />, name: 'Twitter', href: '#' },
-    { icon: <Github className="w-5 h-5" />, name: 'GitHub', href: '#' },
-    { icon: <Linkedin className="w-5 h-5" />, name: 'LinkedIn', href: '#' },
+    { icon: <Github className="w-5 h-5" />, name: 'GitHub', href: 'https://github.com/ShashankBhutiya' },
+    { icon: <Linkedin className="w-5 h-5" />, name: 'LinkedIn', href: 'https://linkedin.com/in/shashankbhutiya' },
     { icon: <Mail className="w-5 h-5" />, name: 'Email', href: 'mailto:hello@jarvistype.com' },
   ];
 

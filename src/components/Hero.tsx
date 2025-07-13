@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { Sparkles, Download, ArrowRight, Play } from 'lucide-react';
+import { Sparkles, Download, Play } from 'lucide-react';
 import './Hero.css';
 
 const Hero = () => {
@@ -15,7 +15,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <div>
+    <div className="w-full overflow-hidden">
       <section className="hero-section">
         <div className="gradient-bg" />
         
@@ -43,7 +43,9 @@ const Hero = () => {
               <span>AI at Your Cursor</span>
             </div>
             
-            <h1 className="hero-title">Type "jarvis" anywhere, get AI instantly</h1>
+            <h1 className="hero-title">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">JarvisType</span> - Type Anywhere, Instantly
+            </h1>
             
             <p className="hero-subtitle">
               Works in Gmail, Slack, Word, WhatsApp—any text box on your computer gets AI superpowers.
