@@ -1,104 +1,74 @@
-import { useMemo } from 'react';
-import { Sparkles, Download, Play } from 'lucide-react';
-import './Hero.css';
+import { Download, Play, ArrowRight } from 'lucide-react';
 
 const Hero = () => {
-  // Generate random particles
-  const particles = useMemo(() => {
-    return Array.from({ length: 20 }).map((_, i) => ({
-      id: i,
-      left: `${Math.random() * 100}%`,
-      top: `${Math.random() * 100}%`,
-      delay: `${Math.random() * 2}s`,
-      duration: `${2 + Math.random() * 2}s`
-    }));
-  }, []);
-
   return (
-    <div className="w-full overflow-hidden">
-      <section className="hero-section">
-        <div className="gradient-bg" />
-        
-        <div className="particles-container">
-          {particles.map((particle) => (
-            <div
-              key={particle.id}
-              className="particle"
-              style={{
-                left: particle.left,
-                top: particle.top,
-                width: `${Math.random() * 12 + 4}px`,
-                height: `${Math.random() * 12 + 4}px`,
-                animationDelay: particle.delay,
-                animationDuration: particle.duration,
-              }}
-            />
-          ))}
-        </div>
+    <section id="hero" className="pt-24 pb-16 bg-gradient-to-b from-blue-50 to-white">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center">
+          {/* Badge */}
+          <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-8">
+            <span className="w-2 h-2 bg-blue-500 rounded-full mr-2 animate-pulse"></span>
+            AI at your cursor
+          </div>
 
-        <div className="hero-content">
-          <div className="hero-header">
-            <div className="badge">
-              <Sparkles className="sparkle-icon" size={16} />
-              <span>AI at Your Cursor</span>
-            </div>
-            
-            <h1 className="hero-title">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">JarvisType</span> - Type Anywhere, Instantly
-            </h1>
-            
-            <p className="hero-subtitle">
-              Works in Gmail, Slack, Word, WhatsApp—any text box on your computer gets AI superpowers.
-            </p>
-            
-            <div className="cta-buttons">
-              <a 
-                href="https://github.com/ShashankBhutiya/project/releases/download/Install/JarvisType.exe" 
-                className="cta-button cta-primary"
-                download="JarvisType.exe"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Download size={18} className="mr-2" />
-                Install in 10 Seconds
-              </a>
-              <a href="#demo" className="cta-button cta-secondary">
-                <Play size={18} className="mr-2" />
-                See It Work
-              </a>
-            </div>
+          {/* Headline */}
+          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+            Type 'jarvis' anywhere,<br />
+            <span className="text-blue-600">get AI instantly</span>
+          </h1>
+
+          {/* Subtitle */}
+          <p className="text-xl text-gray-600 mb-10 max-w-3xl mx-auto leading-relaxed">
+            Works in Gmail, Slack, Word, WhatsApp—any text box on your computer gets AI superpowers with zero setup.
+          </p>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+            <a
+              href="https://github.com/ShashankBhutiya/project/releases/download/Install/JarvisType.exe"
+              download="JarvisType.exe"
+              className="inline-flex items-center px-8 py-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all"
+            >
+              <Download className="w-5 h-5 mr-2" />
+              Install in 10 Seconds
+            </a>
+            <a
+              href="#demo"
+              className="inline-flex items-center px-8 py-4 bg-white text-gray-700 border-2 border-gray-300 rounded-lg hover:border-gray-400 font-semibold text-lg"
+            >
+              <Play className="w-5 h-5 mr-2" />
+              See It Work
+            </a>
           </div>
-          
-          <div className="terminal-container">
-            <div className="terminal-header">
-              <div className="terminal-buttons">
-                <span className="terminal-button close"></span>
-                <span className="terminal-button minimize"></span>
-                <span className="terminal-button maximize"></span>
+
+          {/* Demo Terminal */}
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-gray-900 rounded-xl shadow-2xl overflow-hidden">
+              <div className="flex items-center px-6 py-4 bg-gray-800">
+                <div className="flex space-x-2">
+                  <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                  <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                  <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                </div>
+                <div className="ml-4 text-gray-400 text-sm font-mono">Any App • Anywhere</div>
               </div>
-              <div className="terminal-title">Any App • Anywhere</div>
-            </div>
-            <div className="terminal-content">
-              <div className="terminal-line">
-                <span className="prompt">Gmail:</span> jarvis write apology email to boss
-              </div>
-              <div className="terminal-line output">
-                <span className="prompt">✨</span> Subject: Sincere Apologies for Missing Today's Meeting...
-              </div>
-              <div className="terminal-line" style={{ marginTop: '1rem' }}>
-                <span className="prompt">Slack:</span> jarvis explain quantum computing simply
-              </div>
-              <div className="terminal-line output">
-                <span className="prompt">✨</span> Quantum computing uses quantum bits that can be 0, 1, or both...
+              <div className="p-6 font-mono text-sm">
+                <div className="mb-4">
+                  <div className="text-blue-400">Gmail:</div>
+                  <div className="text-gray-300 ml-4">jarvis write apology email to boss</div>
+                  <div className="text-green-400 ml-4 mt-1">✨ Subject: Sincere Apologies for Missing Today's Meeting...</div>
+                </div>
+                <div>
+                  <div className="text-blue-400">Slack:</div>
+                  <div className="text-gray-300 ml-4">jarvis explain quantum computing simply</div>
+                  <div className="text-green-400 ml-4 mt-1">✨ Quantum computing uses quantum bits that can be 0, 1, or both...</div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
-      <div className="blob blob-1"></div>
-      <div className="blob blob-2"></div>
-      <div className="blob blob-3"></div>
-    </div>
+      </div>
+    </section>
   );
 };
 

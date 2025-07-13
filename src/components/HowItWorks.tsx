@@ -1,161 +1,109 @@
-import React from 'react';
-import { Download, Chrome, Siren as Firefox, Bookmark, ArrowRight } from 'lucide-react';
-import { motion } from 'framer-motion';
-import './HowItWorks.css';
+import { Download, ArrowRight } from 'lucide-react';
 
-const HowItWorks: React.FC = () => {
-  const installOptions = [
+const HowItWorks = () => {
+  const steps = [
     {
-      icon: <Download className="w-8 h-8" />,
-      title: 'Windows App',
-      description: 'One-click install, works everywhere',
-      link: 'https://github.com/ShashankBhutiya/project/releases/download/Install/JarvisType.exe',
-      buttonText: 'Download .exe',
-      primary: true
+      number: '1',
+      title: 'Type "jarvis [your request]"',
+      description: 'In any input field, anywhere on your computer'
     },
     {
-      icon: <Chrome className="w-8 h-8" />,
-      title: 'Chrome Extension',
-      description: 'For web-based workflows',
-      link: '#',
-      buttonText: 'Add to Chrome',
-      primary: false
+      number: '2',
+      title: 'AI processes instantly',
+      description: 'Your words are understood in real-time'
     },
     {
-      icon: <Firefox className="w-8 h-8" />,
-      title: 'Firefox Add-on',
-      description: 'Firefox browser support',
-      link: '#',
-      buttonText: 'Add to Firefox',
-      primary: false
-    },
-    {
-      icon: <Bookmark className="w-8 h-8" />,
-      title: 'Bookmarklet',
-      description: 'Works in any browser',
-      link: '#',
-      buttonText: 'Get Bookmarklet',
-      primary: false
+      number: '3',
+      title: 'Response auto-pasted',
+      description: 'Perfect content appears at your cursor'
     }
   ];
 
-  return (
-    <section className="relative py-24 bg-gray-900/50" id="download">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent">
-            Get Started in 10 Seconds
-          </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Choose your platform and start using AI everywhere you type.
-          </p>
-        </motion.div>
+  const customization = {
+    starting: [
+      { phrase: '##', style: 'Simple' },
+      { phrase: 'Yo Jarvis', style: 'Fun' },
+      { phrase: 'Dear Assistant,', style: 'Professional' }
+    ],
+    ending: [
+      { phrase: '—Over and out,', style: 'Fun' },
+      { phrase: '—Regards,', style: 'Professional' },
+      { phrase: '##', style: 'Simple' }
+    ]
+  };
 
-        {/* Install Options */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          {installOptions.map((option, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className={`bg-gray-800/50 backdrop-blur-sm border rounded-2xl p-6 text-center transition-all duration-300 hover:shadow-xl ${
-                option.primary 
-                  ? 'border-blue-500/50 hover:border-blue-400/70 hover:shadow-blue-500/20' 
-                  : 'border-gray-700/50 hover:border-gray-600/50'
-              }`}
-            >
-              <div className={`inline-flex p-4 rounded-xl mb-4 ${
-                option.primary 
-                  ? 'bg-gradient-to-r from-blue-500 to-purple-600' 
-                  : 'bg-gray-700/50'
-              }`}>
-                {option.icon}
+  return (
+    <section id="how-it-works" className="py-20 bg-gray-50">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* How It Works */}
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            How It Works
+          </h2>
+        </div>
+        
+        <div className="grid md:grid-cols-3 gap-8 mb-20">
+          {steps.map((step, index) => (
+            <div key={index} className="text-center">
+              <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto mb-4">
+                {step.number}
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">{option.title}</h3>
-              <p className="text-gray-400 mb-6 text-sm">{option.description}</p>
-              <a
-                href={option.link}
-                download={option.title === 'Windows App' ? 'JarvisType.exe' : undefined}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`inline-flex items-center justify-center w-full px-4 py-3 rounded-lg font-semibold transition-all duration-300 ${
-                  option.primary
-                    ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white hover:from-blue-600 hover:to-purple-700'
-                    : 'bg-gray-700/50 text-gray-300 hover:bg-gray-600/50 hover:text-white'
-                }`}
-              >
-                {option.buttonText}
-                <ArrowRight className="w-4 h-4 ml-2" />
-              </a>
-            </motion.div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">{step.title}</h3>
+              <p className="text-gray-600">{step.description}</p>
+            </div>
           ))}
         </div>
 
-        {/* Enterprise Section */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          viewport={{ once: true }}
-          className="bg-gradient-to-r from-gray-800/50 to-gray-700/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8 text-center"
-        >
-          <h3 className="text-2xl font-bold text-white mb-4">Need Enterprise Features?</h3>
-          <p className="text-gray-400 mb-6 max-w-2xl mx-auto">
-            Custom AI models, team management, SSO integration, and dedicated support for organizations.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-            <a
-              href="#pricing"
-              className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all duration-300"
-            >
-              See Pricing
-              <ArrowRight className="w-4 h-4 ml-2" />
-            </a>
-            <a
-              href="mailto:sales@jarvistype.com"
-              className="inline-flex items-center justify-center px-6 py-3 border border-gray-600 text-gray-300 font-semibold rounded-lg hover:border-gray-500 hover:text-white transition-all duration-300"
-            >
-              Contact Sales
-            </a>
+        {/* Customization */}
+        <div className="bg-white rounded-xl p-8 mb-16">
+          <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Customize Your Style</h3>
+          <p className="text-gray-600 text-center mb-8">Personalize your trigger phrases to match your tone</p>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            <div>
+              <h4 className="text-lg font-semibold text-gray-900 mb-4">Starting Phrases</h4>
+              <div className="space-y-3">
+                {customization.starting.map((item, index) => (
+                  <div key={index} className="bg-gray-50 rounded-lg p-3 flex justify-between items-center">
+                    <span className="text-blue-600 font-mono">{item.phrase}</span>
+                    <span className="text-gray-500 text-sm">{item.style}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            <div>
+              <h4 className="text-lg font-semibold text-gray-900 mb-4">Ending Phrases</h4>
+              <div className="space-y-3">
+                {customization.ending.map((item, index) => (
+                  <div key={index} className="bg-gray-50 rounded-lg p-3 flex justify-between items-center">
+                    <span className="text-green-600 font-mono">{item.phrase}</span>
+                    <span className="text-gray-500 text-sm">{item.style}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
-        </motion.div>
+        </div>
 
-        {/* Quick Start Guide */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          viewport={{ once: true }}
-          className="mt-16 text-center"
-        >
-          <h3 className="text-xl font-bold text-white mb-6">After Installation</h3>
-          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            <div className="bg-gray-800/30 rounded-xl p-6 border border-gray-700/30">
-              <div className="text-3xl mb-4">1️⃣</div>
-              <h4 className="font-semibold text-white mb-2">Open any app</h4>
-              <p className="text-gray-400 text-sm">Gmail, Slack, Word, WhatsApp—anywhere with text</p>
-            </div>
-            <div className="bg-gray-800/30 rounded-xl p-6 border border-gray-700/30">
-              <div className="text-3xl mb-4">2️⃣</div>
-              <h4 className="font-semibold text-white mb-2">Type "jarvis"</h4>
-              <p className="text-gray-400 text-sm">Followed by your request or question</p>
-            </div>
-            <div className="bg-gray-800/30 rounded-xl p-6 border border-gray-700/30">
-              <div className="text-3xl mb-4">3️⃣</div>
-              <h4 className="font-semibold text-white mb-2">Get instant AI</h4>
-              <p className="text-gray-400 text-sm">Perfect response appears at your cursor</p>
-            </div>
+        {/* Download Section */}
+        <div className="text-center">
+          <div className="bg-blue-600 text-white rounded-xl p-8">
+            <h3 className="text-2xl font-bold mb-4">Get Started in 10 Seconds</h3>
+            <p className="text-blue-100 mb-8 max-w-2xl mx-auto">
+              Download once, use everywhere. No setup, no configuration—just instant AI assistance.
+            </p>
+            <a
+              href="https://github.com/ShashankBhutiya/project/releases/download/Install/JarvisType.exe"
+              download="JarvisType.exe"
+              className="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition-colors"
+            >
+              <Download className="w-5 h-5 mr-2" />
+              Install for Windows
+              <ArrowRight className="w-5 h-5 ml-2" />
+            </a>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
