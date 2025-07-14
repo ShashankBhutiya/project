@@ -25,7 +25,7 @@ const Hero = () => {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
             <a
-              href="https://github.com/ShashankBhutiya/project/releases/download/Install/JarvisType.exe"
+              href="https://github.com/ShashankBhutiya/project/releases/download/Install/JarvisType_T.exe"
               download="JarvisType.exe"
               className="inline-flex items-center px-8 py-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all"
             >

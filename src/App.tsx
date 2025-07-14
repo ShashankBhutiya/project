@@ -3,6 +3,7 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import Features from './components/Features';
 import HowItWorks from './components/HowItWorks';
+import ContactUs from './components/ContactUs';
 import Footer from './components/Footer';
 
 function App() {
@@ -53,6 +54,7 @@ function App() {
         <Features />
         <HowItWorks />
       </main>
+      <ContactUs />
       <Footer />
     </div>
   );

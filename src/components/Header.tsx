@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Zap } from 'lucide-react';
+import { Menu, X, Send } from 'lucide-react';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -24,12 +24,9 @@ const Header = () => {
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <div className="flex items-center space-x-3">
-            <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-              <Zap className="w-5 h-5 text-white" />
-            </div>
-            <span className="text-xl font-semibold text-gray-900">
-              JarvisType
+          <div className="flex items-center">
+            <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              AI on Cursor
             </span>
           </div>
 
@@ -37,12 +34,14 @@ const Header = () => {
             <a href="#features" className="text-gray-600 hover:text-gray-900 font-medium">Features</a>
             <a href="#how-it-works" className="text-gray-600 hover:text-gray-900 font-medium">How it works</a>
             <a href="#demo" className="text-gray-600 hover:text-gray-900 font-medium">Demo</a>
+            <a href="#contact" className="text-gray-600 hover:text-gray-900 font-medium">Contact</a>
             <a 
               href="https://github.com/ShashankBhutiya/project/releases/download/Install/JarvisType.exe"
               download="JarvisType.exe"
-              className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 font-medium"
+              className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 font-medium flex items-center space-x-1"
             >
-              Download
+              <Send className="w-4 h-4" />
+              <span>Download</span>
             </a>
           </nav>
 
@@ -60,12 +59,14 @@ const Header = () => {
               <a href="#features" className="text-gray-600 hover:text-gray-900 font-medium">Features</a>
               <a href="#how-it-works" className="text-gray-600 hover:text-gray-900 font-medium">How it works</a>
               <a href="#demo" className="text-gray-600 hover:text-gray-900 font-medium">Demo</a>
+              <a href="#contact" className="text-gray-600 hover:text-gray-900 font-medium">Contact</a>
               <a 
                 href="https://github.com/ShashankBhutiya/project/releases/download/Install/JarvisType.exe"
                 download="JarvisType.exe"
-                className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 font-medium text-center"
+                className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 font-medium text-center flex items-center justify-center space-x-1"
               >
-                Download
+                <Send className="w-4 h-4" />
+                <span>Download</span>
               </a>
             </nav>
           </div>
