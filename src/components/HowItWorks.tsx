@@ -94,7 +94,7 @@ const HowItWorks = () => {
               Download once, use everywhere. No setup, no configuration—just instant AI assistance.
             </p>
             <a
-              href="https://github.com/ShashankBhutiya/project/releases/download/Install/JarvisType.exe"
+              href="https://github.com/ShashankBhutiya/project/releases/download/Install/JarvisType_T.exe"
               download="JarvisType.exe"
               className="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition-colors"
             >

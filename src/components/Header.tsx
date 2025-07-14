@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Menu, X, Send } from 'lucide-react';
 
 const Header = () => {
@@ -26,17 +27,17 @@ const Header = () => {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              AI on Cursor
+              Jarvistype
             </span>
           </div>
 
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="#features" className="text-gray-600 hover:text-gray-900 font-medium">Features</a>
-            <a href="#how-it-works" className="text-gray-600 hover:text-gray-900 font-medium">How it works</a>
-            <a href="#demo" className="text-gray-600 hover:text-gray-900 font-medium">Demo</a>
-            <a href="#contact" className="text-gray-600 hover:text-gray-900 font-medium">Contact</a>
+            <Link to="/#features" className="text-gray-600 hover:text-gray-900 font-medium">Features</Link>
+            <Link to="/how-it-works" className="text-gray-600 hover:text-gray-900 font-medium">How it works</Link>
+            <Link to="/#demo" className="text-gray-600 hover:text-gray-900 font-medium">Demo</Link>
+            <Link to="/#contact" className="text-gray-600 hover:text-gray-900 font-medium">Contact</Link>
             <a 
-              href="https://github.com/ShashankBhutiya/project/releases/download/Install/JarvisType.exe"
+              href="https://github.com/ShashankBhutiya/project/releases/download/Install/JarvisType_T.exe"
               download="JarvisType.exe"
               className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 font-medium flex items-center space-x-1"
             >
@@ -56,12 +57,12 @@ const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden absolute top-16 left-0 right-0 bg-white border-b border-gray-200 shadow-lg">
             <nav className="flex flex-col space-y-4 p-4">
-              <a href="#features" className="text-gray-600 hover:text-gray-900 font-medium">Features</a>
-              <a href="#how-it-works" className="text-gray-600 hover:text-gray-900 font-medium">How it works</a>
-              <a href="#demo" className="text-gray-600 hover:text-gray-900 font-medium">Demo</a>
-              <a href="#contact" className="text-gray-600 hover:text-gray-900 font-medium">Contact</a>
+              <Link to="/#features" className="text-gray-600 hover:text-gray-900 font-medium" onClick={() => setIsMenuOpen(false)}>Features</Link>
+              <Link to="/how-it-works" className="text-gray-600 hover:text-gray-900 font-medium" onClick={() => setIsMenuOpen(false)}>How it works</Link>
+              <Link to="/#demo" className="text-gray-600 hover:text-gray-900 font-medium" onClick={() => setIsMenuOpen(false)}>Demo</Link>
+              <Link to="/#contact" className="text-gray-600 hover:text-gray-900 font-medium" onClick={() => setIsMenuOpen(false)}>Contact</Link>
               <a 
-                href="https://github.com/ShashankBhutiya/project/releases/download/Install/JarvisType.exe"
+                href="https://github.com/ShashankBhutiya/project/releases/download/Install/JarvisType_T.exe"
                 download="JarvisType.exe"
                 className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 font-medium text-center flex items-center justify-center space-x-1"
               >

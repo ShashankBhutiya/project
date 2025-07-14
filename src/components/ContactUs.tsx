@@ -138,11 +138,11 @@ const ContactUs = () => {
                   <div>
                     <h4 className="font-medium text-gray-800">Email Us</h4>
                     <a href="mailto:contact@aioncursor.com" className="text-blue-600 hover:underline">
-                      contact@aioncursor.com
+                      shashank10bhutiya@gmail.com
                     </a>
                   </div>
                 </div>
-
+{/* 
                 <div className="flex items-start space-x-3">
                   <div className="mt-1">
                     <MapPin className="w-5 h-5 text-blue-600" />
@@ -151,7 +151,7 @@ const ContactUs = () => {
                     <h4 className="font-medium text-gray-800">Our Location</h4>
                     <p className="text-gray-600">123 AI Street, Tech Valley, CA 94025</p>
                   </div>
-                </div>
+                </div> */}
 
                 <div className="flex items-start space-x-3">
                   <div className="mt-1">
@@ -159,8 +159,8 @@ const ContactUs = () => {
                   </div>
                   <div>
                     <h4 className="font-medium text-gray-800">Call Us</h4>
-                    <a href="tel:+11234567890" className="text-blue-600 hover:underline">
-                      +1 (123) 456-7890
+                    <a href="tel:+917000171007" className="text-blue-600 hover:underline">
+                      +91-7000171007
                     </a>
                   </div>
                 </div>
