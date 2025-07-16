@@ -1,46 +1,8 @@
-import { useState } from 'react';
-import { Send, Mail, MapPin, Phone } from 'lucide-react';
+import { Mail, Phone } from 'lucide-react';
+import { Widget } from '@typeform/embed-react';
 
 const ContactUs = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<{success: boolean; message: string} | null>(null);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitStatus(null);
-
-    try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      setSubmitStatus({
-        success: true,
-        message: 'Your message has been sent! We\'ll get back to you soon.'
-      });
-      setFormData({ name: '', email: '', message: '' });
-    } catch (error) {
-      setSubmitStatus({
-        success: false,
-        message: 'Something went wrong. Please try again later.'
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+  const typeformUrl = 'https://nw9fn94f8la.typeform.com/to/UhdHdyDr';
 
   return (
     <section id="contact" className="py-16 bg-white">
@@ -59,67 +21,27 @@ const ContactUs = () => {
           <div className="bg-gray-50 p-8 rounded-xl shadow-sm">
             <h3 className="text-xl font-semibold text-gray-800 mb-6">Send us a message</h3>
             
-            {submitStatus && (
-              <div className={`mb-6 p-4 rounded-lg ${submitStatus.success ? 'bg-green-50 text-green-800' : 'bg-red-50 text-red-800'}`}>
-                {submitStatus.message}
-              </div>
-            )}
-
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                  Your Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                  required
-                />
-              </div>
-
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                  Email Address
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                  required
-                />
-              </div>
-
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                  Your Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows={4}
-                  value={formData.message}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                  required
-                ></textarea>
-              </div>
-
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full bg-blue-600 text-white py-2 px-6 rounded-lg hover:bg-blue-700 transition-colors duration-200 flex items-center justify-center space-x-2 disabled:opacity-70"
-              >
-                <Send className="w-5 h-5" />
-                <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
-              </button>
-            </form>
+            <div className="w-full h-[500px] rounded-lg overflow-hidden">
+              <Widget
+                id="UhdHdyDr"
+                style={{ width: '100%', height: '100%' }}
+                className="rounded-lg overflow-hidden"
+              />
+            </div>
+            
+            <div className="mt-4 text-center">
+              <p className="text-sm text-gray-600">
+                Having trouble with the form?{' '}
+                <a 
+                  href={typeformUrl}
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:underline"
+                >
+                  Open in a new tab
+                </a>
+              </p>
+            </div>
           </div>
 
           {/* Contact Information */}
