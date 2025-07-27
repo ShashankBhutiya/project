@@ -46,15 +46,20 @@ const DemoPage = () => {
             See how JarvisType can transform your workflow with AI-powered text generation
           </p>
           
-          <div className="relative aspect-video overflow-hidden rounded-2xl shadow-2xl bg-black max-w-5xl mx-auto mb-12">
-            <iframe
-              className="w-full h-full"
-              src="https://www.youtube-nocookie.com/embed/4WX_SJe8q3Y?autoplay=0&mute=1&controls=1&rel=0&modestbranding=1&playsinline=1"
-              title="JarvisType Demo"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              frameBorder="0"
-              allowFullScreen
-            ></iframe>
+          <div className="relative overflow-hidden rounded-2xl shadow-2xl bg-black max-w-5xl mx-auto mb-12">
+            <div className="relative pt-[56.25%]">
+              <iframe
+                className="absolute top-0 left-0 w-full h-full"
+                src="https://www.youtube-nocookie.com/embed/4WX_SJe8q3Y?autoplay=1&mute=1&controls=0&loop=1&playlist=4WX_SJe8q3Y&modestbranding=1&rel=0&showinfo=0&disablekb=1&iv_load_policy=3"
+                title="JarvisType Demo"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+            <div className="bg-gradient-to-r from-indigo-600 to-purple-600 py-3 px-6 text-center">
+              <p className="text-white text-sm font-medium">Watch how JarvisType works in any application</p>
+            </div>
           </div>
         </div>
       </div>

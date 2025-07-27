@@ -53,7 +53,7 @@ const Hero: React.FC = () => {
 
             {/* Subtitle */}
             <p className="text-xl text-gray-700 mb-10 max-w-3xl mx-auto leading-relaxed">
-              Type <span className="font-bold text-indigo-600">'jarvis'</span> anywhere and get AI instantly. Works in <span className="font-medium text-indigo-600">Gmail</span>, <span className="font-medium text-purple-600">Slack</span>, <span className="font-medium text-blue-600">Word</span>, <span className="font-medium text-green-600">WhatsApp</span>—any text box on your computer gets <span className="font-semibold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600">AI superpowers</span> with zero setup.
+              Type <span className="font-bold text-indigo-600">'jarvis'</span> anywhere and get AI instantly. Works in Gmail, Slack, Word, WhatsApp—any text box on your computer gets AI superpowers with zero setup.
             </p>
 
             {/* CTA Buttons */}
@@ -67,38 +67,12 @@ const Hero: React.FC = () => {
                 <span>Install in Seconds</span>
               </a>
               <a
-                href="#demo"
+                href="#see-it-in-action"
                 className="group inline-flex items-center px-8 py-4 bg-white text-gray-800 border-2 border-gray-200 rounded-lg hover:border-indigo-300 hover:bg-gray-50 font-semibold text-lg transition-colors duration-300"
               >
                 <Play className="w-5 h-5 mr-2 text-indigo-600 group-hover:scale-110 transition-transform" />
-                <span>See It Work</span>
+                <span>See It In Action</span>
               </a>
-            </div>
-
-            {/* Demo Terminal */}
-            <div className="max-w-4xl mx-auto">
-              <div  className="bg-gray-900 rounded-xl shadow-2xl overflow-hidden">
-                <div className="flex items-center px-6 py-4 bg-gray-800">
-                  <div id="demo" className="flex space-x-2">
-                    <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                    <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                    <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                  </div>
-                  <div className="ml-4 text-gray-400 text-sm font-mono">Any App • Anywhere</div>
-                </div>
-                <div className="p-6 font-mono text-sm">
-                  <div className="mb-4">
-                    <div className="text-blue-400">Gmail:</div>
-                    <div className="text-gray-300 ml-4">jarvis write apology email to boss</div>
-                    <div className="text-green-400 ml-4 mt-1">✨ Subject: Sincere Apologies for Missing Today's Meeting...</div>
-                  </div>
-                  <div>
-                    <div className="text-blue-400">Slack:</div>
-                    <div className="text-gray-300 ml-4">jarvis explain quantum computing simply</div>
-                    <div className="text-green-400 ml-4 mt-1">✨ Quantum computing uses quantum bits that can be 0, 1, or both...</div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>

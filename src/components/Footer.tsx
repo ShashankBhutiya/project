@@ -20,8 +20,10 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               <a
-                href="https://github.com/ShashankBhutiya"
+                href="https://github.com/ShashankBhutiya/project"
                 className="text-gray-400 hover:text-gray-600"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <Github className="w-5 h-5" />
               </a>
@@ -41,7 +43,7 @@ const Footer = () => {
               <li><a href="#features" className="text-gray-600 hover:text-gray-900">Features</a></li>
               <li><a href="#how-it-works" className="text-gray-600 hover:text-gray-900">How it works</a></li>
               <li><a href="#demo" className="text-gray-600 hover:text-gray-900">Demo</a></li>
-              <li><a href="https://github.com/ShashankBhutiya/project/releases" className="text-gray-600 hover:text-gray-900">Download</a></li>
+              <li><a href="https://github.com/ShashankBhutiya/project/releases" className="text-gray-600 hover:text-gray-900" target="_blank" rel="noopener noreferrer">Download</a></li>
             </ul>
           </div>
 
@@ -49,8 +51,8 @@ const Footer = () => {
           <div>
             <h4 className="text-gray-900 font-semibold mb-4">Support</h4>
             <ul className="space-y-3">
-              <li><a href="https://github.com/ShashankBhutiya/project#readme" className="text-gray-600 hover:text-gray-900">Documentation</a></li>
-              <li><a href="https://github.com/ShashankBhutiya/project/issues" className="text-gray-600 hover:text-gray-900">GitHub Issues</a></li>
+              <li><a href="https://github.com/ShashankBhutiya/project#readme" className="text-gray-600 hover:text-gray-900" target="_blank" rel="noopener noreferrer">Documentation</a></li>
+              <li><a href="https://github.com/ShashankBhutiya/project/issues" className="text-gray-600 hover:text-gray-900" target="_blank" rel="noopener noreferrer">GitHub Issues</a></li>
               <li><a href="mailto:contact@jarvistype.com" className="text-gray-600 hover:text-gray-900">Contact</a></li>
             </ul>
           </div>
@@ -61,8 +63,8 @@ const Footer = () => {
             &copy; {currentYear} JarvisType. All rights reserved.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="#" className="text-gray-500 hover:text-gray-700 text-sm">Privacy Policy</a>
-            <a href="#" className="text-gray-500 hover:text-gray-700 text-sm">Terms of Service</a>
+            <a href="/privacy" className="text-gray-500 hover:text-gray-700 text-sm">Privacy Policy</a>
+            <a href="/terms" className="text-gray-500 hover:text-gray-700 text-sm">Terms of Service</a>
           </div>
         </div>
       </div>
